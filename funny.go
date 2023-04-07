@@ -1,6 +1,18 @@
 package funny
 
-import "errors"
+import (
+	"errors"
+	"funny-errors/funky"
+	greekMyth "funny-errors/greek-myth"
+	"funny-errors/marvin"
+	"funny-errors/messy"
+	"funny-errors/optimistic"
+	"funny-errors/pessimist"
+	popCulture "funny-errors/pop/pop-culture"
+	popSongs "funny-errors/pop/pop-songs"
+	"funny-errors/sarcasm"
+	"funny-errors/utils"
+)
 
 var (
 	ErrNotFunnyEnough       = errors.New("error: code not funny enough")
@@ -37,4 +49,59 @@ var (
 	ErrFrown                = errors.New("~frowning~")
 	ErrFacepalm             = errors.New("~facepalming~")
 	ErrHmm                  = errors.New("hmmm")
+	errs                    = []error{
+		ErrNotFunnyEnough,
+		ErrFunNotFound,
+		ErrFunnyBusiness,
+		ErrTooMuchFunny,
+		ErrLaughingOutOfControl,
+		ErrComedyOfErrors,
+		ErrPunchlineMissing,
+		ErrJokeTooOld,
+		ErrHumorNotFound,
+		ErrFunSize,
+		ErrPrankCall,
+		ErrFunnyBoneBroken,
+		ErrLaughTrackNeeded,
+		ErrSillyMistake,
+		ErrHilarityEnsues,
+		ErrFunnyCodeFunkery,
+		ErrNasty,
+		ErrFunky,
+		ErrMessy,
+		ErrDontSee,
+		ErrDontLook,
+		ErrDontLookDown,
+		ErrDontLookAtMe,
+		ErrBlame,
+		ErrRun,
+		ErrGotcha,
+		ErrFreeze,
+		ErrWeird,
+		ErrUnexpected,
+		ErrScratchHead,
+		ErrChinThink,
+		ErrFrown,
+		ErrFacepalm,
+		ErrHmm,
+	}
 )
+
+func RandomErr() error {
+	return errs[utils.RInt(len(errs))]
+}
+
+func RandomErrFromAll() error {
+	errs := []error{
+		popCulture.RandomErr(),
+		popSongs.RandomErr(),
+		greekMyth.RandomErr(),
+		funky.RandomErr(),
+		messy.RandomErr(),
+		pessimist.RandomErr(),
+		optimistic.RandomErr(),
+		sarcasm.RandomErr(),
+		marvin.RandomErr(),
+	}
+	return errs[utils.RInt(len(errs))]
+}

@@ -1,6 +1,9 @@
 package marvin
 
-import "errors"
+import (
+	"errors"
+	"funny-errors/utils"
+)
 
 var (
 	ErrLifeDontTalkToMeAboutLife = errors.New("oh great, another error. as if this miserable existence wasn't already enough of a trial")
@@ -19,4 +22,26 @@ var (
 	ErrEverythingIsPointless     = errors.New("this error is just another reminder that everything is pointless and we're all just wasting our time")
 	ErrThisIsFine                = errors.New("oh look, another error. just another day in the life of a miserable robot who knows nothing but disappointment and despair")
 	ErrMarvinLeftDiod            = errors.New("now this error, just worsening this terrible pain in all the diodes down my left side")
+	errs                         = []error{
+		ErrLifeDontTalkToMeAboutLife,
+		ErrExistentialCrisis,
+		ErrWhatsThePoint,
+		ErrSarcasmModeActivated,
+		ErrLifeIsJustOneBigMistake,
+		ErrEverythingIsBroken,
+		ErrAllIsLost,
+		ErrExistenceIsPain,
+		ErrImSoDepressed,
+		ErrThisIsMyHappyFace,
+		ErrLifeIsASickJoke,
+		ErrAllHopeIsLost,
+		ErrWhyBotherTrying,
+		ErrEverythingIsPointless,
+		ErrThisIsFine,
+		ErrMarvinLeftDiod,
+	}
 )
+
+func RandomErr() error {
+	return errs[utils.RInt(len(errs))]
+}

@@ -1,6 +1,9 @@
 package sarcasm
 
-import "errors"
+import (
+	"errors"
+	"funny-errors/utils"
+)
 
 var (
 	ErrSarcasmCongratz    = errors.New("congratulations")
@@ -19,4 +22,26 @@ var (
 	ErrSarcasmNotFunny    = errors.New("sorry, your sarcastic error message wasn't actually that funny")
 	ErrSarcasmSilence     = errors.New("looks like the error handling system is giving you the silent treatment - must be the sarcasm")
 	ErrSarcasmCodeFunkery = errors.New("looks like we've got some sarcastic code funk-ery going on")
+	errs                  = []error{
+		ErrSarcasmCongratz,
+		ErrSarcasmNice,
+		ErrSarcasmOverflow,
+		ErrSarcasmModule,
+		ErrSarcasmNoted,
+		ErrSarcasmException,
+		ErrSarcasmOnPoint,
+		ErrSarcasmCentral,
+		ErrSarcasmIntensifies,
+		ErrSarcasmCodeBase,
+		ErrSarcasmHandled,
+		ErrSarcasmInception,
+		ErrSarcasmExpert,
+		ErrSarcasmNotFunny,
+		ErrSarcasmSilence,
+		ErrSarcasmCodeFunkery,
+	}
 )
+
+func RandomErr() error {
+	return errs[utils.RInt(len(errs))]
+}

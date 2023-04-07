@@ -1,6 +1,9 @@
 package pessimist
 
-import "errors"
+import (
+	"errors"
+	"funny-errors/utils"
+)
 
 var (
 	ErrLifeAMess             = errors.New("life's a mess, what did you expect?")
@@ -18,4 +21,25 @@ var (
 	ErrToldYouSo             = errors.New("i told you this wouldn't work, but no one ever listens to me")
 	ErrWhyBother             = errors.New("why bother trying? it's not like anything ever goes right")
 	ErrEverythingTerrible    = errors.New("it's not your fault, everything is just terrible")
+	errs                     = []error{
+		ErrLifeAMess,
+		ErrNotGonnaWork,
+		ErrWasteOfTime,
+		ErrGiveUpNow,
+		ErrSameOldStory,
+		ErrAnotherDayFailure,
+		ErrAlwaysTheSame,
+		ErrIKnewThisWouldHappen,
+		ErrNoPointTrying,
+		ErrUniverseConspiring,
+		ErrEverythingBroken,
+		ErrFullOfDisappointments,
+		ErrToldYouSo,
+		ErrWhyBother,
+		ErrEverythingTerrible,
+	}
 )
+
+func RandomErr() error {
+	return errs[utils.RInt(len(errs))]
+}

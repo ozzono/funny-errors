@@ -1,6 +1,9 @@
 package popCulture
 
-import "errors"
+import (
+	"errors"
+	"funny-errors/utils"
+)
 
 var (
 	Err404NotFoundInSpace                   = errors.New("houston, we have a problem. error 404: file not found... in space")
@@ -30,4 +33,37 @@ var (
 	ErrGandalf                              = errors.New("the error may come at a great cost, and it is not clear whether it will succeed")
 	ErrHobbit                               = errors.New("the error may seem small and insignificant, but it can still have a big impact on the system")
 	ErrNazgul                               = errors.New("the error was a dark and ominous presence that cannot be allowed to corrupt the system")
+	errs                                    = []error{
+		Err404NotFoundInSpace,
+		ErrLukeIAmYourError,
+		ErrToInfinityAndBeyond,
+		ErrHastaLaVistaBaby,
+		ErrZoolanderBlueSteel,
+		ErrTheresNoPlaceLikeError,
+		ErrMayTheForceBeWithYou,
+		ErrWinterIsComing,
+		ErrBeamMeUpScotty,
+		ErrYippeeKiYay,
+		ErrHoustonWeHaveAProblem,
+		ErrShowMeTheError,
+		ErrTheOneError,
+		ErrMyPrecious,
+		ErrIveGotAFeelingWereNotInKansasAnymore,
+		ErrItsAMeMario,
+		ErrSimply,
+		ErrVitoCorleone,
+		ErrMichaelCorleone,
+		ErrSonnyCorleone,
+		ErrClemenza,
+		ErrFredoSantana,
+		ErrGollum,
+		ErrSauron,
+		ErrGandalf,
+		ErrHobbit,
+		ErrNazgul,
+	}
 )
+
+func RandomErr() error {
+	return errs[utils.RInt(len(errs))]
+}

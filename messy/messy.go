@@ -1,6 +1,9 @@
 package messy
 
-import "errors"
+import (
+	"errors"
+	"funny-errors/utils"
+)
 
 var (
 	ErrMessyFan                   = errors.New("error: the mess just hit the fan")
@@ -33,4 +36,40 @@ var (
 	ErrThisIsARealMess            = errors.New("this is a real mess we've gotten ourselves into - better start digging ourselves out of this error")
 	ErrMessyErrorButWorthIt       = errors.New("this error may be messy, but the end result will be worth the cleanup")
 	ErrCanWePleaseCleanThisMessUp = errors.New("can we please clean this mess up? it's getting a little out of hand")
+	errs                          = []error{
+		ErrMessyFan,
+		ErrMessyHouston,
+		ErrMessyBitSituation,
+		ErrMessyDance,
+		ErrMessyCodebase,
+		ErrMessyCapacity,
+		ErrMessySituation,
+		ErrMessyLoop,
+		ErrMessyNotEnough,
+		ErrMessyMalfunction,
+		ErrMessyInCodebase,
+		ErrMessyBug,
+		ErrMessyWords,
+		ErrMessyCleanup,
+		ErrMessyCodeFunkery,
+		ErrWellThisIsAMess,
+		ErrNoBigDealJustAMess,
+		ErrWeDidntStartTheMess,
+		ErrThisIsQuiteAMess,
+		ErrWhoopsAMess,
+		ErrThisIsAMessySituation,
+		ErrMessyCodeMessyError,
+		ErrCanYouSmellTheMess,
+		ErrThisIsGettingMessy,
+		ErrWellThatWasAMess,
+		ErrHotMess,
+		ErrMessyMessyError,
+		ErrThisIsARealMess,
+		ErrMessyErrorButWorthIt,
+		ErrCanWePleaseCleanThisMessUp,
+	}
 )
+
+func RandomErr() error {
+	return errs[utils.RInt(len(errs))]
+}

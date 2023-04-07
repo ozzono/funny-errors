@@ -1,6 +1,9 @@
 package popSongs
 
-import "errors"
+import (
+	"errors"
+	"funny-errors/utils"
+)
 
 var (
 	ErrOopsIDidItAgain             = errors.New("oops, i did it again - this code be acting up! time to go back to the drawing board and fix it")
@@ -20,4 +23,27 @@ var (
 	ErrGirlsJustWannaHaveDebugging = errors.New("girls just wanna have debugging, but this error's got us feeling like we're all thumbs. let's get this code working so we can have some fun")
 	ErrBackToSchool                = errors.New("i'm gonna send ya. back to schoolin")
 	ErrNoEducation                 = errors.New("we don't need no education")
+	errs                           = []error{
+		ErrOopsIDidItAgain,
+		ErrSmoothOperator,
+		ErrDancingQueen,
+		ErrEyeOfTheTiger,
+		ErrSweetChildOMine,
+		ErrBillieJeanIsNotMyCode,
+		ErrUptownFunkYouUp,
+		ErrStairwayToNowhere,
+		ErrLivinOnAPrayer,
+		ErrIWillSurviveThisError,
+		ErrThrillerNightmare,
+		ErrEveryBreathYouTake,
+		ErrBohemianRhapsody,
+		ErrSweetCarolineNoCode,
+		ErrGirlsJustWannaHaveDebugging,
+		ErrBackToSchool,
+		ErrNoEducation,
+	}
 )
+
+func RandomErr() error {
+	return errs[utils.RInt(len(errs))]
+}

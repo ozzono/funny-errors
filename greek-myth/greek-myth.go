@@ -1,6 +1,9 @@
 package greekMyth
 
-import "errors"
+import (
+	"errors"
+	"funny-errors/utils"
+)
 
 var (
 	ErrMinotaur = errors.New("the error was trapped in a labyrinth and cannot be found")
@@ -8,4 +11,15 @@ var (
 	ErrMedusa   = errors.New("the output turned into stone due to an unexpected error")
 	ErrSisyphus = errors.New("the error has been repeatedly failed and cannot be completed")
 	ErrCerberus = errors.New("the error was denied access to the requested resource by multiple guards")
+	errs        = []error{
+		ErrMinotaur,
+		ErrHydra,
+		ErrMedusa,
+		ErrSisyphus,
+		ErrCerberus,
+	}
 )
+
+func RandomErr() error {
+	return errs[utils.RInt(len(errs))]
+}

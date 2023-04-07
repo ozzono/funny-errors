@@ -1,6 +1,9 @@
 package optimistic
 
-import "errors"
+import (
+	"errors"
+	"funny-errors/utils"
+)
 
 var (
 	ErrEverythingIsFine     = errors.New("don't worry, everything is fine! this error is just a small bump in the road, and it will be resolved in no time")
@@ -18,4 +21,25 @@ var (
 	ErrFixIsOnTheWay        = errors.New("fix is on the way! this error won't stand a chance against our team of experts. a solution is already in the works")
 	ErrNotToWorry           = errors.New("not to worry! this error is just a minor hiccup that we'll have resolved in no time")
 	ErrQuickAndEasySolution = errors.New("quick and easy solution! this error is no match for our team of skilled developers. we'll have it fixed in a jiffy")
+	errs                    = []error{
+		ErrEverythingIsFine,
+		ErrNoProblemHere,
+		ErrSurelyThisWillWork,
+		ErrJustAQuickFix,
+		ErrNoNeedToPanic,
+		ErrEasyFixComingUp,
+		ErrSmoothSailingAhead,
+		ErrPieceOfCake,
+		ErrNothingToWorryAbout,
+		ErrAQuickResolution,
+		ErrMinorGlitch,
+		ErrAllUnderControl,
+		ErrFixIsOnTheWay,
+		ErrNotToWorry,
+		ErrQuickAndEasySolution,
+	}
 )
+
+func RandomErr() error {
+	return errs[utils.RInt(len(errs))]
+}

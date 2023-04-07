@@ -1,6 +1,9 @@
 package funky
 
-import "errors"
+import (
+	"errors"
+	"funny-errors/utils"
+)
 
 var (
 	ErrFunkyFanningOut  = errors.New("error: the funk just hit the fan")
@@ -18,4 +21,25 @@ var (
 	ErrFunkyStrong      = errors.New("error: the funk is strong with this one")
 	ErrFunkyWords       = errors.New("sorry, this error is just too funky for words")
 	ErrFunkyCodeFunkery = errors.New("looks like we've got a classic case of code funk-ery")
+	errs                = []error{
+		ErrFunkyFanningOut,
+		ErrFunkyHouston,
+		ErrFunkySituation,
+		ErrFunkyDance,
+		ErrFunkyCodebase,
+		ErrFunkyCapacity,
+		ErrFunkyMess,
+		ErrFunkyLoop,
+		ErrFunkyNotEnough,
+		ErrFunkyMalfunction,
+		ErrFunkyInCodebase,
+		ErrFunkyBug,
+		ErrFunkyStrong,
+		ErrFunkyWords,
+		ErrFunkyCodeFunkery,
+	}
 )
+
+func RandomErr() error {
+	return errs[utils.RInt(len(errs))]
+}
