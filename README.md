@@ -1,7 +1,7 @@
 # Funny Error Messages
 
 This package has some funny error messages. The main idea is to work as a suggestion as in the message list below, but it can also be used as a golang package, including some random error messages.
-> In case any error is chosen, consider using a comment with the error message to make it easier to find it thru the later, if needed.
+> In case any error is chosen, consider using a comment with the error message to make it easier to find it thru the code later, if needed.
 
 |Filter|Error name|Error text|
 |---|---|---|
